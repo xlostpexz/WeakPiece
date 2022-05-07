@@ -93,6 +93,12 @@ wait(3)
 game:Shutdown()
     end)
     
+    Sector2:AddButton("Remove Name",function()
+        game.Players.LocalPlayer.Character.Head.Overhead:Destroy()
+        
+    game:GetService("Players").LocalPlayer.PlayerGui.MainUI.HUD.Playername:Destroy()
+    end)
+    
 Sector2:AddToggle("NoClip",_G.NoClip,function(t)
       _G.NoClip = t
 end)
