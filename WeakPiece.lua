@@ -1,5 +1,5 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.4",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.5",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
     local Sector2 = Tab:CreateSector("LocalPlayer","right")
@@ -10,6 +10,12 @@
        _G.ALLMOB = value
        _G.NoClip = value
        _G.Click = value
+    end)
+    
+    Sector1:AddToggle("Auto Ace",_G.Ace,function(value)
+    _G.Ace = value
+    _G.NoClip = value
+    _G.Click = value
     end)
 
     Sector1:AddToggle("Auto Yeti",_G.Yeti,function(value)
@@ -181,6 +187,16 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         pcall(function()
             if _G.ZB then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom.Zombie.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Ace then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Ace.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
             end
         end)
        end)
