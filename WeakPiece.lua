@@ -5,10 +5,6 @@
     local Sector2 = Tab:CreateSector("LocalPlayer","right")
     local Sector3 = Tab:CreateSector("Teleport","left")
     local Sector4 = Tab:CreateSector("Auto Eqiup","right")
-
-    Sector1:AddToggle("Auto Spawn Boss",_G.Spawn,function(value)
-        _G.Spawn = value
-    end)
     
     Sector1:AddToggle("Auto Kill Enel Yeti",_G.ALLMOB,function(value)
        _G.ALLMOB = value
@@ -259,36 +255,6 @@ fireclickdetector(game:GetService("Workspace")["[MRMS]"].ClickDetector)
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Jacko then
-fireclickdetector(game:GetService("Workspace")["[JOR]"].ClickDetector)
-            end
-        end)
-       end)
-    end)
-    
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.Spawn then
-fireclickdetector(game:GetService("Workspace")["[Ace]"].ClickDetector)
-            end
-        end)
-       end)
-    end)
-    
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.Spawn then
-fireclickdetector(game:GetService("Workspace")["[MRMS]"].ClickDetector)
-            end
-        end)
-       end)
-    end)
-    
-    spawn(function()
-       game:GetService("RunService").RenderStepped:Connect(function()
-        pcall(function()
-            if _G.Spawn then
 fireclickdetector(game:GetService("Workspace")["[JOR]"].ClickDetector)
             end
         end)
