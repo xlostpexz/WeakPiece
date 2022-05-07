@@ -60,6 +60,14 @@
        _G.Click = value
     end)
     
+    Sector1:AddSlider("Behind",-20,1,20,1,function(y)
+   Disc = y
+    end)
+    
+    Sector1:AddSlider("Above",-20,1,20,1,function(y)
+   Disc2 = y
+    end)
+    
     Sector2:AddButton("Force Reset",function()
 game.Players.LocalPlayer.Character.Head:Destroy()
 game.Players.LocalPlayer.Character.UpperTorso:Destroy()
@@ -101,10 +109,6 @@ end)
     
     Sector2:AddSlider("WalkSpeed",1,16,300,1,function(x)
   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = x
-    end)
-    
-    Sector2:AddSlider("JumpPower",1,16,300,1,function(y)
-   game.Players.LocalPlayer.Character.Humanoid.JumpPower = y
     end)
     
     Sector3:AddButton("First Island",function()
@@ -155,7 +159,7 @@ end)
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Yeti then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow.Yeti.HumanoidRootPart.CFrame * CFrame.new(0,-11,3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow.Yeti.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
@@ -165,7 +169,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.ALLMOB then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow.Yeti.HumanoidRootPart.CFrame * CFrame.new(0,-11,3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow.Yeti.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
@@ -176,7 +180,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Bandit then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.FirstIsland.Bandit.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.FirstIsland.Bandit.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
@@ -186,7 +190,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.ZB then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom.Zombie.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom.Zombie.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
@@ -196,7 +200,17 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Ace then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Ace.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Ace.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Ace then
+fireclickdetector(game:GetService("Workspace")["[Ace]"].ClickDetector)
             end
         end)
        end)
@@ -216,7 +230,7 @@ game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players")
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Jacko then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom["Jack O Ripper"].HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom["Jack O Ripper"].HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
@@ -226,7 +240,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.DB then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Sahara["Desert Bandit"].HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Sahara["Desert Bandit"].HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
@@ -236,7 +250,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
         if _G.Enel then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.SkyPiea.Enel.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.SkyPiea.Enel.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
@@ -246,7 +260,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
         if _G.ALLMOB then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.SkyPiea.Enel.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.SkyPiea.Enel.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
@@ -256,7 +270,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.SMR then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Samurai.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Samurai.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
