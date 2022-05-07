@@ -6,7 +6,7 @@
     local Sector3 = Tab:CreateSector("Teleport","left")
     local Sector4 = Tab:CreateSector("Auto Eqiup","right")
 
-    Sector1:AddToggle("auto Spawn Boss",_G.Spawn,function(value)
+    Sector1:AddToggle("Auto Spawn Boss",_G.Spawn,function(value)
         _G.Spawn = value
     end)
     
