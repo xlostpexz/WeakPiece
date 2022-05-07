@@ -8,6 +8,7 @@
     
     Sector1:AddToggle("Kill All",_G.ALLMOB2,function(value)
         _G.ALLMOB2 = value
+        _G.Spawn = value
 local plr = game.Players.LocalPlayer
 while _G.ALLMOB2 do wait(0.2)
    game:GetService("ReplicatedStorage").Remote.Skills:FireServer("HitboxCombat", 10000, plr.Character.HumanoidRootPart.CFrame, 9e18, nil, plr.Character)
@@ -52,6 +53,12 @@ end
     
     Sector1:AddToggle("Auto Samurai",_G.SMR,function(value)
        _G.SMR = value
+       _G.NoClip = value
+       _G.Click = value
+    end)
+    
+    Sector1:AddToggle("Auto Muramasa",_G.SMR,function(value)
+       _G.MRMS = value
        _G.NoClip = value
        _G.Click = value
     end)
@@ -203,6 +210,16 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
     spawn(function()
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
+            if _G.MRMS then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Muramasa.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
             if _G.ZB then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom.Zombie.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
@@ -225,6 +242,56 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         pcall(function()
             if _G.Ace then
 fireclickdetector(game:GetService("Workspace")["[Ace]"].ClickDetector)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.MRMS then
+fireclickdetector(game:GetService("Workspace")["[MRMS]"].ClickDetector)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Jacko then
+fireclickdetector(game:GetService("Workspace")["[JOR]"].ClickDetector)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Spawn then
+fireclickdetector(game:GetService("Workspace")["[Ace]"].ClickDetector)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Spawn then
+fireclickdetector(game:GetService("Workspace")["[MRMS]"].ClickDetector)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Spawn then
+fireclickdetector(game:GetService("Workspace")["[JOR]"].ClickDetector)
             end
         end)
        end)
