@@ -1,48 +1,52 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.2",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.3",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
     local Sector2 = Tab:CreateSector("LocalPlayer","right")
     local Sector3 = Tab:CreateSector("Teleport","left")
     local Sector4 = Tab:CreateSector("Auto Eqiup","right")
-    
-    Sector1:AddToggle("Auto Attack",_G.Click,function(value)
-       _G.Click = value
-    end)
+
 
     Sector1:AddToggle("Auto Yeti",_G.Yeti,function(value)
        _G.Yeti = value
        _G.NoClip = value
+       _G.Click = value
     end)
     
     Sector1:AddToggle("Auto Jack O Ripper",_G.Jacko,function(value)
        _G.Jacko = value
        _G.NoClip = value
+       _G.Click = value
     end)
     
     Sector1:AddToggle("Auto Enel",_G.Enel,function(value)
        _G.Enel = value
        _G.NoClip = value
+       _G.Click = value
     end)    
 
     Sector1:AddToggle("Auto Bandit",_G.Bandit,function(value)
        _G.Bandit = value
        _G.NoClip = value
+       _G.Click = value
     end)
     
     Sector1:AddToggle("Auto Samurai",_G.SMR,function(value)
        _G.SMR = value
        _G.NoClip = value
+       _G.Click = value
     end)
     
     Sector1:AddToggle("Auto Zombie",_G.ZB,function(value)
        _G.ZB = value
        _G.NoClip = value
+       _G.Click = value
     end)
     
     Sector1:AddToggle("Auto Desert Bandit",_G.DB,function(value)
        _G.DB = value
        _G.NoClip = value
+       _G.Click = value
     end)
     
     Sector2:AddButton("Force Reset",function()
@@ -117,6 +121,11 @@ end)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-753.447021, 432.81076, -308.890625, -0.995045066, -1.70389587e-08, -0.0994235501, -5.87073501e-09, 1, -1.12622409e-07, 0.0994235501, -1.11480681e-07, -0.995045066)
     end)
     
+    Sector3:AddButton("Tower Island",function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-821.089478, 149.675079, 522.761414, 0.956539452, -3.38968817e-08, -0.29160288, 1.47988173e-08, 1, -6.76990126e-08, 0.29160288, 6.04414012e-08, 0.956539452)
+    end)
+
+    
     local Weaponlist = {}
     local Weapon = nil
     
@@ -124,19 +133,13 @@ end)
         table.insert(Weaponlist,v.Name)
     end
     
-    local Dropdownxd = Sector4:AddToggle("Auto Eqiup",_G.AutoEqiup,function(t)
+    Sector4:AddToggle("Auto Eqiup",_G.AutoEqiup,function(t)
     _G.AutoEqiup = t
     end)
-    Dropdownxd:AddDropdown(Weaponlist,"None",false,function(t)
+    local dropdoxwn = Sector4:AddDropdown("Select Weapon",Weaponlist,"None",false,function(t)
         Weapon = t
     end)
     
-    Sector4:AddButton("Refresh",function()
-    table.clear(Weaponlist)
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-       table.insert(Weaponlist,v.Name)
-    end
-    end)
     spawn(function()
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
@@ -227,3 +230,4 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         end)
        end)
         end)
+        
