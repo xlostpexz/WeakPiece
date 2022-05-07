@@ -3,6 +3,8 @@
     local Tab = CenterHubNo1:CreateTab("Main")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
     local Sector2 = Tab:CreateSector("LocalPlayer","right")
+    local Sector3 = Tab:CreateSector("Teleport","left")
+    local Sector4 = Tab:CreateSector("Auto Eqiup","right")
     
     Sector1:AddToggle("Auto Attack",_G.Click,function(value)
        _G.Click = value
@@ -15,6 +17,31 @@
     
     Sector1:AddToggle("Auto Jack O Ripper",_G.Jacko,function(value)
        _G.Jacko = value
+       _G.NoClip = value
+    end)
+    
+    Sector1:AddToggle("Auto Enel",_G.Enel,function(value)
+       _G.Enel = value
+       _G.NoClip = value
+    end)    
+
+    Sector1:AddToggle("Auto Bandit",_G.Bandit,function(value)
+       _G.Bandit = value
+       _G.NoClip = value
+    end)
+    
+    Sector1:AddToggle("Auto Samurai",_G.SMR,function(value)
+       _G.SMR = value
+       _G.NoClip = value
+    end)
+    
+    Sector1:AddToggle("Auto Zombie",_G.ZB,function(value)
+       _G.ZB = value
+       _G.NoClip = value
+    end)
+    
+    Sector1:AddToggle("Auto Desert Bandit",_G.DB,function(value)
+       _G.DB = value
        _G.NoClip = value
     end)
     
@@ -65,11 +92,86 @@ end)
    game.Players.LocalPlayer.Character.Humanoid.JumpPower = y
     end)
     
+    Sector3:AddButton("First Island",function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(11.7174263, 6.75673771, 99.9803696, 0.93037051, 9.21774514e-08, -0.366620719, -7.65244863e-08, 1, 5.72289771e-08, 0.366620719, -2.51886902e-08, 0.93037051)
+    end)
+
+    Sector3:AddButton("Forest Island",function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-247.239441, 17.3356705, -639.695862, -0.999846876, 5.16586006e-05, 0.0175022632, 6.31982766e-05, 0.999999762, 0.00065877114, -0.0175022185, 0.000659776386, -0.999846697)
+    end)
+    
+    Sector3:AddButton("Snow Island",function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(836.984497, 58.9647942, -347.517883, -0.986913145, 5.28953459e-09, 0.161254004, 1.60403282e-08, 1, 6.53681411e-08, -0.161254004, 6.70992293e-08, -0.986913145)
+    end)
+    
+    Sector3:AddButton("Zombie Island",function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(356.495728, 6.55889559, -1431.90686, -0.904274821, 4.10582501e-08, 0.426950902, 2.24235315e-08, 1, -4.86735452e-08, -0.426950902, -3.44405144e-08, -0.904274821)
+    end)
+    
+    Sector3:AddButton("Deset Island",function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1077.61707, 5.48693371, 748.497986, 0.997230232, -2.51246597e-08, -0.0743764266, 3.47970683e-08, 1, 1.28750841e-07, 0.0743764266, -1.30982315e-07, 0.997230232)
+    end)
+    
+    
+    Sector3:AddButton("SkyPiea Island",function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-753.447021, 432.81076, -308.890625, -0.995045066, -1.70389587e-08, -0.0994235501, -5.87073501e-09, 1, -1.12622409e-07, 0.0994235501, -1.11480681e-07, -0.995045066)
+    end)
+    
+    local Weaponlist = {}
+    local Weapon = nil
+    
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+        table.insert(Weaponlist,v.Name)
+    end
+    
+    local Dropdownxd = Sector4:AddToggle("Auto Eqiup",_G.AutoEqiup,function(t)
+    _G.AutoEqiup = t
+    end)
+    Dropdownxd:AddDropdown(Weaponlist,"None",false,function(t)
+        Weapon = t
+    end)
+    
+    Sector4:AddButton("Refresh",function()
+    table.clear(Weaponlist)
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+       table.insert(Weaponlist,v.Name)
+    end
+    end)
     spawn(function()
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Yeti then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow.Yeti.HumanoidRootPart.CFrame * CFrame.new(0,-10,3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow.Yeti.HumanoidRootPart.CFrame * CFrame.new(0,-11,3)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Bandit then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.FirstIsland.Bandit.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.ZB then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom.Zombie.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.AutoEqiup then
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
             end
         end)
        end)
@@ -79,7 +181,37 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
             if _G.Jacko then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom["Jack O Ripper"].HumanoidRootPart.CFrame * CFrame.new(0,-10,3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Mushroom["Jack O Ripper"].HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+            end
+        end)
+       end)
+    end)
+
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.DB then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Sahara["Desert Bandit"].HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Enel then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.SkyPiea.Enel.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.SMR then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Samurai.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
             end
         end)
        end)
