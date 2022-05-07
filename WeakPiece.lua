@@ -1,11 +1,16 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.3",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.4",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
     local Sector2 = Tab:CreateSector("LocalPlayer","right")
     local Sector3 = Tab:CreateSector("Teleport","left")
     local Sector4 = Tab:CreateSector("Auto Eqiup","right")
 
+    Sector1:AddToggle("Auto Kill All Mob",_G.ALLMOB,function(value)
+       _G.ALLMOB = value
+       _G.NoClip = value
+       _G.Click = value
+    end)
 
     Sector1:AddToggle("Auto Yeti",_G.Yeti,function(value)
        _G.Yeti = value
@@ -153,6 +158,17 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
     spawn(function()
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
+            if _G.ALLMOB then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.Snow.Yeti.HumanoidRootPart.CFrame * CFrame.new(0,-11,3)
+            end
+        end)
+       end)
+    end)
+    
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
             if _G.Bandit then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.FirstIsland.Bandit.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
             end
@@ -203,7 +219,17 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
     spawn(function()
        game:GetService("RunService").RenderStepped:Connect(function()
         pcall(function()
-            if _G.Enel then
+        if _G.Enel then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.SkyPiea.Enel.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+        if _G.ALLMOB then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.SkyPiea.Enel.HumanoidRootPart.CFrame * CFrame.new(0,-7,1)
             end
         end)
