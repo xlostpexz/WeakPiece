@@ -1,5 +1,5 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.9",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.1",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
     local Sector2 = Tab:CreateSector("LocalPlayer","right")
@@ -8,14 +8,6 @@
 
     Sector1:AddToggle("Auto Spawn Boss",_G.Spawn,function(value)
         _G.Spawn = value
-    end)
-    
-    Sector1:AddToggle("Kill All",_G.ALLMOB2,function(value)
-        _G.ALLMOB2 = value
-local plr = game.Players.LocalPlayer
-while _G.ALLMOB2 do wait(0.2)
-   game:GetService("ReplicatedStorage").Remote.Skills:FireServer("HitboxCombat", 10000, plr.Character.HumanoidRootPart.CFrame, 9e18, nil, plr.Character)
-end
     end)
     
     Sector1:AddToggle("Auto Kill Enel Yeti",_G.ALLMOB,function(value)
@@ -164,6 +156,9 @@ end)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-821.089478, 149.675079, 522.761414, 0.956539452, -3.38968817e-08, -0.29160288, 1.47988173e-08, 1, -6.76990126e-08, 0.29160288, 6.04414012e-08, 0.956539452)
     end)
 
+    Sector3:AddButton("Red Forest Island",function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1429.4447, 10.4301357, -293.121124, 0.0388498269, 7.43226847e-05, -0.999243855, 4.31531589e-05, 1, 7.605664e-05, 0.999243855, -4.6075329e-05, 0.0388498269)
+    end)
     
     local Weaponlist = {}
     local Weapon = nil
