@@ -5,8 +5,16 @@
     local Sector2 = Tab:CreateSector("LocalPlayer","right")
     local Sector3 = Tab:CreateSector("Teleport","left")
     local Sector4 = Tab:CreateSector("Auto Eqiup","right")
-
-    Sector1:AddToggle("Auto Kill All Mob",_G.ALLMOB,function(value)
+    
+    Sector1:AddToggle("Kill All",_G.ALLMOB2,function(value)
+        _G.ALLMOB2 = value
+local plr = game.Players.LocalPlayer
+while _G.ALLMOB2 do wait(0.2)
+   game:GetService("ReplicatedStorage").Remote.Skills:FireServer("HitboxCombat", 10000, plr.Character.HumanoidRootPart.CFrame, 9e18, nil, plr.Character)
+end
+    end)
+    
+    Sector1:AddToggle("Auto Kill Enel Yeti",_G.ALLMOB,function(value)
        _G.ALLMOB = value
        _G.NoClip = value
        _G.Click = value
