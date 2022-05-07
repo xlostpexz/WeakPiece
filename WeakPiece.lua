@@ -1,5 +1,5 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.8",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.9",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
     local Sector2 = Tab:CreateSector("LocalPlayer","right")
