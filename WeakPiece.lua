@@ -1,14 +1,17 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.7",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.0.8",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
     local Sector2 = Tab:CreateSector("LocalPlayer","right")
     local Sector3 = Tab:CreateSector("Teleport","left")
     local Sector4 = Tab:CreateSector("Auto Eqiup","right")
+
+    Sector1:AddToggle("auto Spawn Boss",_G.Spawn,function(value)
+        _G.Spawn = value
+    end)
     
     Sector1:AddToggle("Kill All",_G.ALLMOB2,function(value)
         _G.ALLMOB2 = value
-        _G.Spawn = value
 local plr = game.Players.LocalPlayer
 while _G.ALLMOB2 do wait(0.2)
    game:GetService("ReplicatedStorage").Remote.Skills:FireServer("HitboxCombat", 10000, plr.Character.HumanoidRootPart.CFrame, 9e18, nil, plr.Character)
