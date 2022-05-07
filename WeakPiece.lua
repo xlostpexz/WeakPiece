@@ -6,6 +6,12 @@
     local Sector3 = Tab:CreateSector("Teleport","left")
     local Sector4 = Tab:CreateSector("Auto Eqiup","right")
     
+    Sector1:AddToggle("Auto Shanks",_G.Shanks,function(value)
+       _G.Shanks = value
+       _G.NoClip = value
+       _G.Click = value
+    end)
+    
     Sector1:AddToggle("Auto Kill Enel Yeti",_G.ALLMOB,function(value)
        _G.ALLMOB = value
        _G.NoClip = value
@@ -316,6 +322,16 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         pcall(function()
             if _G.SMR then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.ForestIsland.Samurai.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.Shanks then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.RedForest.SwordMan.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
