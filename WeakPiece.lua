@@ -1,5 +1,5 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.5",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.6",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
     local Tab2 = CenterHubNo1:CreateTab("Fake Stats")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
@@ -137,6 +137,97 @@ v.Parent.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * C
 end
 end
         end
+end)
+
+Sector2:AddButton("Full Bright",function()
+local Light = game:GetService("Lighting")
+ 
+function dofullbright()
+Light.Ambient = Color3.new(1, 1, 1)
+Light.ColorShift_Bottom = Color3.new(1, 1, 1)
+Light.ColorShift_Top = Color3.new(1, 1, 1)
+end
+ 
+dofullbright()
+ 
+Light.LightingChanged:Connect(dofullbright)
+end)
+
+Sector2:AddButton("No Fog",function()
+    for i,v in pairs(game.Lighting:GetChildren()) do
+            if v:IsA("Script") == false and v:IsA("LocalScript") == false then
+                v:remove()
+        end
+    end
+while true and wait() do
+game.Lighting.FogEnd = math.huge
+        game.Lighting.FogStart = 0
+        
+        game.Lighting.ClockTime=12
+    game.Lighting.Brightness = 2
+        game.Lighting.Ambient = Color3.fromRGB(167, 167, 167)
+        game.Lighting.OutdoorAmbient = Color3.fromRGB(167, 167, 167)
+end
+end)
+
+Sector2:AddButton("RTX",function()
+            getgenv().mode = "Autumn" -- Choose from Summer and Autumn
+            settings().Rendering.QualityLevel = 10
+            local a = game.Lighting
+            a.Ambient = Color3.fromRGB(33, 33, 33)
+            a.Brightness = 6.67
+            a.ColorShift_Bottom = Color3.fromRGB(0, 0, 0)
+            a.ColorShift_Top = Color3.fromRGB(255, 247, 237)
+            a.EnvironmentDiffuseScale = 0.105
+            a.EnvironmentSpecularScale = 0.522
+            a.GlobalShadows = true
+            a.OutdoorAmbient = Color3.fromRGB(51, 54, 67)
+            a.ShadowSoftness = 0.04
+            a.GeographicLatitude = -15.525
+            a.ExposureCompensation = 0.75
+            local b = Instance.new("BloomEffect", a)
+            b.Enabled = true
+            b.Intensity = 0.04
+            b.Size = 1900
+            b.Threshold = 0.915
+            local c = Instance.new("ColorCorrectionEffect", a)
+            c.Brightness = 0.176
+            c.Contrast = 0.39
+            c.Enabled = true
+            c.Saturation = 0.2
+            c.TintColor = Color3.fromRGB(217, 145, 57)
+            if getgenv().mode == "Summer" then
+                c.TintColor = Color3.fromRGB(255, 220, 148)
+            elseif getgenv().mode == "Autumn" then
+                c.TintColor = Color3.fromRGB(217, 145, 57)
+            else
+                warn("No mode selected!")
+                print("Please select a mode")
+                b:Destroy()
+                c:Destroy()
+            end
+            local d = Instance.new("DepthOfFieldEffect", a)
+            d.Enabled = true
+            d.FarIntensity = 0.077
+            d.FocusDistance = 21.54
+            d.InFocusRadius = 20.77
+            d.NearIntensity = 0.277
+            local e = Instance.new("ColorCorrectionEffect", a)
+            e.Brightness = 0
+            e.Contrast = -0.07
+            e.Saturation = 0
+            e.Enabled = true
+            e.TintColor = Color3.fromRGB(255, 247, 239)
+            local e2 = Instance.new("ColorCorrectionEffect", a)
+            e2.Brightness = 0.2
+            e2.Contrast = 0.45
+            e2.Saturation = -0.1
+            e2.Enabled = true
+            e2.TintColor = Color3.fromRGB(255, 255, 255)
+            local s = Instance.new("SunRaysEffect", a)
+            s.Enabled = true
+            s.Intensity = 0.01
+            s.Spread = 0.146
 end)
 
     spawn(function()
