@@ -295,6 +295,10 @@ end)
        game.Players.LocalPlayer.StatsFolder["Beli"].Value = x
     end)
     
+    Sector5:AddSlider("Fake SP",game.Players.LocalPlayer.StatsFolder["SP"].Value,0,100000000000,1,function(x)
+       game.Players.LocalPlayer.StatsFolder["SP"].Value = x
+    end)
+    
     Sector5:AddSlider("Fake Strength Levels",game.Players.LocalPlayer.StatsFolder["Strength Levels"].Value,0,100000000000,1,function(x)
        game.Players.LocalPlayer.StatsFolder["Strength Levels"].Value = x
     end)
