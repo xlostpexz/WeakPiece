@@ -1,10 +1,12 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.1",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.2",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
+    local Tab2 = CenterHubNo1:CreateTab("Fake Stats")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
     local Sector2 = Tab:CreateSector("LocalPlayer","right")
     local Sector3 = Tab:CreateSector("Teleport","left")
     local Sector4 = Tab:CreateSector("Auto Eqiup","right")
+    local Sector5 = Tab2:CreateSector("Auto Eqiup","left")
     
     Sector1:AddToggle("Auto Shanks",_G.Shanks,function(value)
        _G.Shanks = value
@@ -174,6 +176,26 @@ end)
     end)
     local dropdoxwn = Sector4:AddDropdown("Select Weapon",Weaponlist,"None",false,function(t)
         Weapon = t
+    end)
+    
+    Sector5:AddSlider("Fake Beli",game.Players.LocalPlayer.StatsFolder["Beli"].Value,0,100000000000,1,function(x)
+       game.Players.LocalPlayer.StatsFolder["Beli"].Value = x
+    end)
+    
+    Sector5:AddSlider("Fake Strength Levels",game.Players.LocalPlayer.StatsFolder["Strength Levels"].Value,0,100000000000,1,function(x)
+       game.Players.LocalPlayer.StatsFolder["Strength Levels"].Value = x
+    end)
+    
+    Sector5:AddSlider("Fake Durability Levels",game.Players.LocalPlayer.StatsFolder["Durability Levels"].Value,0,100000000000,1,function(x)
+       game.Players.LocalPlayer.StatsFolder["Durability Levels"].Value = x
+    end)
+    
+    Sector5:AddSlider("Fake Stamina Levels",game.Players.LocalPlayer.StatsFolder["Stamina Levels"].Value,0,100000000000,1,function(x)
+       game.Players.LocalPlayer.StatsFolder["Stamina Levels"].Value = x
+    end)
+    
+    Sector5:AddSlider("Fake DevilFruit Levels",game.Players.LocalPlayer.StatsFolder["DevilFruit Levels"].Value,0,100000000000,1,function(x)
+       game.Players.LocalPlayer.StatsFolder["DevilFruit Levels"].Value = x
     end)
     
     spawn(function()
