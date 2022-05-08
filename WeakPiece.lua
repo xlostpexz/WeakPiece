@@ -1,5 +1,5 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.6",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.7",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
     local Tab2 = CenterHubNo1:CreateTab("Fake Stats")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
@@ -7,6 +7,12 @@
     local Sector3 = Tab:CreateSector("Teleport","left")
     local Sector4 = Tab:CreateSector("Auto Eqiup","right")
     local Sector5 = Tab2:CreateSector("Fake Stats","left")
+    
+    Sector1:AddToggle("Auto Sea Warriors",_G.SW,function(value)
+       _G.SW = value
+       _G.NoClip = value
+       _G.Click = value
+    end)
     
     Sector1:AddToggle("Auto Shanks",_G.Shanks,function(value)
        _G.Shanks = value
@@ -341,6 +347,16 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Wo
         pcall(function()
             if _G.Bandit then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Enemy.FirstIsland.Bandit.HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
+            end
+        end)
+       end)
+    end)
+    
+    spawn(function()
+       game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            if _G.SW then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").SeaWarrior["Sea Warrior"].HumanoidRootPart.CFrame * CFrame.new(0,Disc2,Disc)
             end
         end)
        end)
