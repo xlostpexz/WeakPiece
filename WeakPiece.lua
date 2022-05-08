@@ -1,12 +1,12 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.3",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.4",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
     local Tab2 = CenterHubNo1:CreateTab("Fake Stats")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
-    local Sector2 = Tab:CreateSector("LocalPlayer","right")
+    local Sector2 = Tab:CreateSector("Misc","right")
     local Sector3 = Tab:CreateSector("Teleport","left")
     local Sector4 = Tab:CreateSector("Auto Eqiup","right")
-    local Sector5 = Tab2:CreateSector("Auto Eqiup","left")
+    local Sector5 = Tab2:CreateSector("Fake Stats","left")
     
     Sector1:AddToggle("Auto Shanks",_G.Shanks,function(value)
        _G.Shanks = value
@@ -119,6 +119,20 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/xlostpexz/FPSBoost/ma
     
 Sector2:AddToggle("NoClip",_G.NoClip,function(t)
       _G.NoClip = t
+end)
+
+Sector2:AddToggle("Bring Fruits",_G.PUF,function(t)
+      _G.PUF = t
+      while _G.PUF do wait()
+for i,v in pairs(game:GetService("Workspace")["???"]:GetDescendants()) do
+    
+if v.Name == "TouchInterest"  then
+
+v.Parent.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-1)
+
+end
+end
+        end
 end)
 
     spawn(function()
