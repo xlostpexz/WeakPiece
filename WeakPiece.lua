@@ -1,5 +1,5 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
-    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.4",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("Winnable Hub | Weak Piece V.1.1.5",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Main")
     local Tab2 = CenterHubNo1:CreateTab("Fake Stats")
     local Sector1 = Tab:CreateSector("Auto Farm","left")
@@ -115,6 +115,10 @@ game:Shutdown()
     
     Sector2:AddButton("FPS BOOST",function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/xlostpexz/FPSBoost/main/FPSBoost', true))()
+    end)
+    
+    Sector2:AddButton("Open Inventory",function()
+fireclickdetector(game:GetService("Workspace")["Inventory_Part"].Inventory.Click.ClickDetector)
     end)
     
 Sector2:AddToggle("NoClip",_G.NoClip,function(t)
